@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Pin Clone</title>
 </head>
-<body> ng-app="app" ng-controller="AppCtrl"
+<body ng-app="app" ng-controller="AppCtrl as app">
 Your app goes here!
 
-
+{{ app.message }}
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="js/app.js"></script>
