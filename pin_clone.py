@@ -1,14 +1,16 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, Text
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqllite:///pin.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pin.db'
 db = SQLAlchemy(app)
 
+
 class Pin(db.Model):
-    id = Column(Integer, primary_key = True)
+    id = Column(Integer, primary_key=True)
     title = Column(Text, unique=False)
-    image = Column(Test, unique=False)
+    image = Column(Text, unique=False)
 
 db.create_all()
 
