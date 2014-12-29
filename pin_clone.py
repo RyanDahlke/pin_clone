@@ -14,9 +14,12 @@ class Pin(db.Model):
 
 db.create_all()
 
+api_manager = APIManager (app, flask_sqlalchemy_db=db)
+api_manager.create_api(Pin, methods= ['GET', 'POST', 'DELETE', 'PUT'])
+
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    return app.send_static_file("index.html")
 
 app.debug = True
 
